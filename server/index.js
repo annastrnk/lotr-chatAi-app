@@ -5,7 +5,11 @@ import OpenAI from 'openai'
 
 dotenv.config()
 const app = express()
-app.use(cors())
+
+app.use(cors({
+  origin: process.env.CLIENT_URL || '*', // дозволь фронту звертатись
+  methods: ['GET', 'POST']
+}));
 app.use(express.json())
 
 const openai = new OpenAI({ apiKey: process.env.OPENAI_SECRET_KEY })
@@ -17,6 +21,10 @@ const characterContext = {
   gollum: "You are Gollum. Speak obsessively about the precious."
 }
 
+app.get('/', (req, res) => {
+  res.send('Server is running ✅');
+});
+
 app.post('/chat', async (req, res) => {
   try {
     const { messages, character } = req.body
@@ -26,10 +34,11 @@ app.post('/chat', async (req, res) => {
       messages: [{ role: 'system', content: context }, ...messages]
     })
     res.json({ reply: response.choices[0].message.content })
-  } catch {
+  } catch (error) {
+    console.error(error);
     res.status(500).json({ error: 'Server error' })
   }
 })
 
 const PORT = process.env.PORT || 3001
-app.listen(PORT, () => console.log(`Server on http://localhost:${PORT}`))
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`))
