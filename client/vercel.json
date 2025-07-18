@@ -1,7 +1,16 @@
 {
-    "build": {
-      "env": {
-        "NODE_ENV": "development"
-      }
+  "builds": [
+    {
+      "src": "client/package.json",
+      "use": "@vercel/node",
+      "buildCommand": "npm run build",
+      "outputDirectory": "client/dist"
     }
-  }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "client/dist/$1"
+    }
+  ]
+}
