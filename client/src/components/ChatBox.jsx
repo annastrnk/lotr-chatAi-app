@@ -23,15 +23,18 @@ export default function ChatBox({ messages, onSend, loading }) {
 
   return (
     <div
-      className="flex flex-col 
-    h-[90vh] max-h-[90vh]
-    w-full max-w-[90%] sm:max-w-[600px]
-    p-3 sm:p-6
-    bg-[#1B3A2E] text-[#E2D6B3] 
-    rounded-2xl shadow-[0_4px_30px_rgba(0,0,0,0.6)]
-    border border-[#C5A300]/30 backdrop-blur-sm
-    mx-auto my-4"
-    >
+    className="
+      flex flex-col
+      h-[80vh] sm:h-[90vh]     
+      max-h-[90vh]
+      w-full max-w-[95%] sm:max-w-[600px] 
+      p-2 sm:p-6            
+      bg-[#1B3A2E] text-[#E2D6B3]
+      rounded-2xl shadow-[0_4px_30px_rgba(0,0,0,0.6)]
+      border border-[#C5A300]/30 backdrop-blur-sm
+      mx-auto my-2 sm:my-4     
+    "
+  >
       <div className="flex-grow overflow-y-auto mb-4 space-y-2">
         {messages.length === 0 && (
           <p className="text-center font-lotr text-[#C5A300] italic opacity-80">
