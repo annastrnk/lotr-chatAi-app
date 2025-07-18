@@ -23,10 +23,10 @@ export default function App() {
 
   return (
     <div   className="h-screen w-screen bg-cover bg-center flex items-center justify-center"
-    style={{ backgroundImage: "url('../assets/lord-of-the-rings-wallpaper-6.jpg" }}>
+    style={{ backgroundImage: "url('/assets/lord-of-the-rings-wallpaper-6.jpg" }}>
     <div className="max-w-3xl mx-auto p-4 h-screen flex flex-col"
     >
-      {/* <img src="../assets/lord-of-the-rings-wallpaper-6.jpg" alt="" /> */}
+      {/* <img src="../public/assets/lord-of-the-rings-wallpaper-6.jpg" /> */}
       <h1 className="text-3xl  font-lotr font-bold mb-4 text-center">Chat with Lord of the Rings characters</h1>
       <CharacterSelector character={character} setCharacter={setCharacter} />
       <ChatBox messages={messages} onSend={handleSend} />
