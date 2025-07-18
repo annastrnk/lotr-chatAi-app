@@ -7,8 +7,9 @@ dotenv.config()
 const app = express()
 
 app.use(cors({
-  origin: process.env.CLIENT_URL || '*', // дозволь фронту звертатись
-  methods: ['GET', 'POST']
+  origin: '*',
+  methods: ['GET', 'POST'],
+  credentials: true
 }));
 app.use(express.json())
 
