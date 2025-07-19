@@ -59,27 +59,46 @@ export default function App() {
     setLoading(false);
   }
   return (
-    <div
-      className="h-screen w-full bg-cover bg-center flex items-center justify-center px-4"
-      style={{
-        backgroundImage: "url('/assets/lord-of-the-rings-wallpaper-6.jpg')",
-      }}
-    >
-      <div className="max-w-[600px] w-full mx-auto p-3 sm:p-6 flex flex-col max-h-[90vh] overflow-y-auto">
-        <h1 className="text-3xl font-lotr font-bold mb-4 text-center">
-          Chat with Lord of the Rings characters
-        </h1>
+<div
+  className="
+    min-h-screen w-full bg-cover bg-center 
+    flex items-center justify-center px-2 sm:px-4
+    overflow-hidden
+  "
+  style={{
+    backgroundImage: "url('/assets/lord-of-the-rings-wallpaper-6.jpg')",
+  }}
+>
+  <div
+    className="
+      relative flex flex-col
+      w-full max-w-[600px] 
+      rounded-2xl shadow-[0_3px_20px_rgba(0,0,0,0.5)]
+      border border-[#C5A300]/30 backdrop-blur-sm
+      overflow-hidden
+      h-[calc(100dvh-16px)]
+      bg-transparent
+    "
+  >
+    <div className="px-2 sm:px-4 pb-2 sm:pb-3">
+      <h1 className="text-xl sm:text-3xl font-lotr font-bold text-center text-[#FFD700]">
+        Chat with Lord of the Rings characters
+      </h1>
 
-        <CharacterSelector character={character} setCharacter={setCharacter} />
-
-        <ChatBox messages={messages} onSend={handleSend} loading={loading} />
-
-        {loading && (
-          <p className="text-center font-lotr mt-2 text-gray-500">
-            I am writing a reply...
-          </p>
-        )}
-      </div>
+      <CharacterSelector character={character} setCharacter={setCharacter} />
     </div>
+    <div
+      className="
+        flex flex-col flex-1 overflow-hidden
+        rounded-t-3xl
+        p-2 sm:p-4
+      "
+    >
+      <ChatBox messages={messages} onSend={handleSend} loading={loading} />
+    </div>
+  </div>
+</div>
+
+
   );
 }
