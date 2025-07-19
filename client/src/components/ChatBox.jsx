@@ -54,6 +54,7 @@ export default function ChatBox({ messages, onSend, loading }) {
         className="
       flex mt-1 shadow-inner rounded-lg overflow-hidden
       p-1 bg-[#1B3A2E]
+      sticky bottom-0
     "
       >
         <input

@@ -61,7 +61,7 @@ export default function App() {
   return (
 <div
   className="
-    min-h-screen w-full bg-cover bg-center 
+  h-[100dvh] w-full bg-cover bg-center 
     flex items-center justify-center px-2 sm:px-4
     overflow-hidden
   "
