@@ -30,6 +30,7 @@ export default function useChatLogic() {
     setMessages(newMessages);
     setLoading(true);
 
+
     try {
       const reply = await sendMessage(newMessages, character);
       setMessages([...newMessages, { role: "assistant", content: reply }]);

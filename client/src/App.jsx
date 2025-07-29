@@ -6,7 +6,7 @@ import CharacterSelector from "./components/CharacterSelector";
 export default function App() {
   const { character, setCharacter, messages, loading, handleSend } = useChatLogic();
   const longWait = useLongWait(loading);
-
+  console.log("Loading:", loading, "Long wait:", longWait);
   return (
     <div
       className="min-h-[100dvh] w-full bg-cover bg-center flex items-center justify-center px-2 sm:px-4 overflow-x-hidden"
